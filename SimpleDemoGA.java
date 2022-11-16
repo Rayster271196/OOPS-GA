@@ -1,11 +1,6 @@
 import java.util.Random;
+import java.util.ArrayList;
 
-/**
- *
- * @author Vijini
- */
-
-//Main class
 public class SimpleDemoGA {
 
     Population population = new Population();
@@ -20,7 +15,7 @@ public class SimpleDemoGA {
         SimpleDemoGA demo = new SimpleDemoGA();
 
         //Initialize population
-        demo.population.initializePopulation(100);
+        demo.population.initializePopulation(10);
 
         //Calculate fitness of each individual
         demo.population.calculateFitness();
@@ -55,7 +50,7 @@ public class SimpleDemoGA {
         System.out.println("Fitness: "+demo.population.getFittest().fitness);
         System.out.print("Genes: ");
         for (int i = 0; i < 5; i++) {
-            System.out.print(demo.population.getFittest().genes[i]);
+            System.out.print(demo.population.getFittest().genes.get(i));
         }
 
         System.out.println("");
@@ -77,13 +72,13 @@ public class SimpleDemoGA {
         Random rn = new Random();
 
         //Select a random crossover point
-        int crossOverPoint = rn.nextInt(population.individuals[0].geneLength);
+        int crossOverPoint = rn.nextInt(population.individuals.get(0).geneLength);
 
         //Swap values among parents
         for (int i = 0; i < crossOverPoint; i++) {
-            int temp = fittest.genes[i];
-            fittest.genes[i] = secondFittest.genes[i];
-            secondFittest.genes[i] = temp;
+            int temp = fittest.genes.get(i);
+            fittest.genes.add(i, secondFittest.genes.get(i));
+            secondFittest.genes.add(i, temp);
 
         }
 
@@ -94,21 +89,21 @@ public class SimpleDemoGA {
         Random rn = new Random();
 
         //Select a random mutation point
-        int mutationPoint = rn.nextInt(population.individuals[0].geneLength);
+        int mutationPoint = rn.nextInt(population.individuals.get(0).geneLength);
 
         //Flip values at the mutation point
-        if (fittest.genes[mutationPoint] == 0) {
-            fittest.genes[mutationPoint] = 1;
+        if (fittest.genes.get(mutationPoint) == 0) {
+            fittest.genes.add(mutationPoint,1);
         } else {
-            fittest.genes[mutationPoint] = 0;
+            fittest.genes.add(mutationPoint, 0);
         }
 
-        mutationPoint = rn.nextInt(population.individuals[0].geneLength);
+        mutationPoint = rn.nextInt(population.individuals.get(0).geneLength);
 
-        if (secondFittest.genes[mutationPoint] == 0) {
-            secondFittest.genes[mutationPoint] = 1;
+        if (secondFittest.genes.get(mutationPoint) == 0) {
+            secondFittest.genes.add(mutationPoint,1);
         } else {
-            secondFittest.genes[mutationPoint] = 0;
+            secondFittest.genes.add(mutationPoint, 0);
         }
     }
 
@@ -132,7 +127,7 @@ public class SimpleDemoGA {
         int leastFittestIndex = population.getLeastFittestIndex();
 
         //Replace least fittest individual from most fittest offspring
-        population.individuals[leastFittestIndex] = getFittestOffspring();
+        population.individuals.add(leastFittestIndex, getFittestOffspring());
     }
 
 }
@@ -142,15 +137,17 @@ public class SimpleDemoGA {
 class Individual {
 
     int fitness = 0;
-    int[] genes = new int[10];
     int geneLength = 10;
+    ArrayList<Integer> genes= new ArrayList<Integer>(geneLength);
+    //int[] genes = new int[10];
+    
 
     public Individual() {
         Random rn = new Random();
 
         //Set genes randomly for each individual
-        for (int i = 0; i < genes.length; i++) {
-            genes[i] = Math.abs(rn.nextInt() % 2);
+        for (int i = 0; i < geneLength; i++) {
+            genes.add(Math.abs(rn.nextInt() % 2));
         }
 
         fitness = 0;
@@ -160,8 +157,8 @@ class Individual {
     public void calcFitness() {
 
         fitness = 0;
-        for (int i = 0; i < 5; i++) {
-            if (genes[i] == 1) {
+        for (int i = 0; i < geneLength; i++) {
+            if (genes.get(i) == 1) {
                 ++fitness;
             }
         }
@@ -172,14 +169,16 @@ class Individual {
 //Population class
 class Population {
 
-    int popSize = 100;
-    Individual[] individuals = new Individual[100];
+    int defaultPopSize = 10;
+    ArrayList<Individual> individuals = new ArrayList<Individual>(defaultPopSize);
     int fittest = 0;
 
     //Initialize population
     public void initializePopulation(int size) {
-        for (int i = 0; i < individuals.length; i++) {
-            individuals[i] = new Individual();
+        individuals = new ArrayList<Individual>(size);
+        for (int i = 0; i < size; i++) {
+
+            individuals.add(new Individual());
         }
     }
 
@@ -187,38 +186,38 @@ class Population {
     public Individual getFittest() {
         int maxFit = Integer.MIN_VALUE;
         int maxFitIndex = 0;
-        for (int i = 0; i < individuals.length; i++) {
-            if (maxFit <= individuals[i].fitness) {
-                maxFit = individuals[i].fitness;
+        for (int i = 0; i < individuals.size(); i++) {
+            if (maxFit <= individuals.get(i).fitness) {
+                maxFit = individuals.get(i).fitness;
                 maxFitIndex = i;
             }
         }
-        fittest = individuals[maxFitIndex].fitness;
-        return individuals[maxFitIndex];
+        fittest = individuals.get(maxFitIndex).fitness;
+        return individuals.get(maxFitIndex);
     }
 
     //Get the second most fittest individual
     public Individual getSecondFittest() {
         int maxFit1 = 0;
         int maxFit2 = 0;
-        for (int i = 0; i < individuals.length; i++) {
-            if (individuals[i].fitness > individuals[maxFit1].fitness) {
+        for (int i = 0; i < individuals.size(); i++) {
+            if (individuals.get(i).fitness > individuals.get(maxFit1).fitness) {
                 maxFit2 = maxFit1;
                 maxFit1 = i;
-            } else if (individuals[i].fitness > individuals[maxFit2].fitness) {
+            } else if (individuals.get(i).fitness > individuals.get(maxFit2).fitness) {
                 maxFit2 = i;
             }
         }
-        return individuals[maxFit2];
+        return individuals.get(maxFit2);
     }
 
     //Get index of least fittest individual
     public int getLeastFittestIndex() {
         int minFitVal = Integer.MAX_VALUE;
         int minFitIndex = 0;
-        for (int i = 0; i < individuals.length; i++) {
-            if (minFitVal >= individuals[i].fitness) {
-                minFitVal = individuals[i].fitness;
+        for (int i = 0; i < individuals.size(); i++) {
+            if (minFitVal >= individuals.get(i).fitness) {
+                minFitVal = individuals.get(i).fitness;
                 minFitIndex = i;
             }
         }
@@ -228,8 +227,8 @@ class Population {
     //Calculate fitness of each individual
     public void calculateFitness() {
 
-        for (int i = 0; i < individuals.length; i++) {
-            individuals[i].calcFitness();
+        for (int i = 0; i < individuals.size(); i++) {
+            individuals.get(i).calcFitness();
         }
         getFittest();
     }

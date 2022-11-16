@@ -23,7 +23,7 @@ public class SimpleDemoGA {
         System.out.println("Generation: " + demo.generationCount + " Fittest: " + demo.population.fittest);
 
         //While population gets an individual with maximum fitness
-        while (demo.population.fittest < 10) {
+        while (demo.population.fittest < 5) {
             ++demo.generationCount;
 
             //Do selection

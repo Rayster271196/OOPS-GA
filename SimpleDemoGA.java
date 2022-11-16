@@ -1,10 +1,5 @@
 import java.util.Random;
 
-/**
- *
- * @author Vijini
- */
-
 //Main class
 public class SimpleDemoGA {
 
@@ -20,7 +15,7 @@ public class SimpleDemoGA {
         SimpleDemoGA demo = new SimpleDemoGA();
 
         //Initialize population
-        demo.population.initializePopulation(100);
+        demo.population.initializePopulation(10);
 
         //Calculate fitness of each individual
         demo.population.calculateFitness();
@@ -28,7 +23,7 @@ public class SimpleDemoGA {
         System.out.println("Generation: " + demo.generationCount + " Fittest: " + demo.population.fittest);
 
         //While population gets an individual with maximum fitness
-        while (demo.population.fittest < 10) {
+        while (demo.population.fittest < 5) {
             ++demo.generationCount;
 
             //Do selection
@@ -142,8 +137,8 @@ public class SimpleDemoGA {
 class Individual {
 
     int fitness = 0;
-    int[] genes = new int[10];
-    int geneLength = 10;
+    int[] genes = new int[5];
+    int geneLength = 5;
 
     public Individual() {
         Random rn = new Random();
@@ -172,8 +167,8 @@ class Individual {
 //Population class
 class Population {
 
-    int popSize = 100;
-    Individual[] individuals = new Individual[100];
+    int popSize = 10;
+    Individual[] individuals = new Individual[10];
     int fittest = 0;
 
     //Initialize population

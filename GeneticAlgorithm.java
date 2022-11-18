@@ -6,18 +6,17 @@ public class GeneticAlgorithm {
     Individual fittest;
     Individual secondFittest;
     int generationCount = 0;
-    static GeneticAlgorithm instance_ = null;
 
-    private GeneticAlgorithm(){
+    // This is the eagerly created implementation of the GeneticAlgorithm class. It is thread-safe. 
+	private static GeneticAlgorithm instance_ = new GeneticAlgorithm();
 
-    }
+    // Private constructor. It can not be envoked by another class
+    private GeneticAlgorithm(){}
 
     public static GeneticAlgorithm getInstance(){
-        if(instance_ == null){
-            instance_ = new GeneticAlgorithm();
-        }
         return instance_;
     }
+    
     //Selection
     void selection() {
 

@@ -1,16 +1,21 @@
 package GA_Crossover;
-import java.util.Collections;
+
+// import java.util.Collections;
 import java.util.Random;
-import java.util.Random.*;
+// import java.util.Random.*;
 
+// import GA_Main.GeneticAlgorithm;
 import GA_Main.Individual;
+// import GA_Selection.EliteSelection;
 
-public class Twopointcrossover implements Crossover {
+public class TwoPointCrossover implements Crossover {
     public void crossover() {
         Random rn = new Random();
 
         // new child
-        Individual child = new Individual();
+        
+        Individual fittest = demo.population.getFittest();
+        Individual secondFittest = demo.population.getSecondFittest();
 
         // Select a random crossover point
         int crossOverPoint1 = rn.nextInt(Individual.geneLength);
@@ -34,9 +39,11 @@ public class Twopointcrossover implements Crossover {
 
         // Swap values among parents
         for (int i = 0; i < Individual.geneLength; i++) {
-            // if( (i< crossOverPoint1) || (i > crossOverPoint2)
-            // Collections.copy(child.genes),//insert gense of the perviousl declared);
-
+            if ((i >= crossOverPoint1) || (i <= crossOverPoint2)) {
+                int temp = fittest.genes.get(i);
+                fittest.genes.add(i, secondFittest.genes.get(i));
+                secondFittest.genes.add(i, temp);
+            }
         }
     }
 }

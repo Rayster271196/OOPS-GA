@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class GeneticAlgorithm {
 
-    Population population = new Population();
+    public Population population = new Population();
     Individual fittest;
     Individual secondFittest;
     int generationCount = 0;

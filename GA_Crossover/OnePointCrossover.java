@@ -9,8 +9,8 @@ public class OnePointCrossover implements Crossover {
     public void crossover() {
         Random rn = new Random();
 
-        Individual fittest = demo.population.getFittest();
-        Individual secondFittest = demo.population.getSecondFittest();
+        Individual fittest = demo.getFittest();
+        Individual secondFittest = demo.getSecondFittest();
 
         // Select a random crossover point
         int crossOverPoint = rn.nextInt(Individual.geneLength);

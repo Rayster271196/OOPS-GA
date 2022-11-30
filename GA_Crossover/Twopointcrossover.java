@@ -12,10 +12,8 @@ public class TwoPointCrossover implements Crossover {
     public void crossover() {
         Random rn = new Random();
 
-        // new child
-        
-        Individual fittest = demo.population.getFittest();
-        Individual secondFittest = demo.population.getSecondFittest();
+        Individual fittest = demo.getFittest();
+        Individual secondFittest = demo.getSecondFittest();
 
         // Select a random crossover point
         int crossOverPoint1 = rn.nextInt(Individual.geneLength);

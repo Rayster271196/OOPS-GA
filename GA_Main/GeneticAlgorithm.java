@@ -4,8 +4,27 @@ import java.util.Random;
 public class GeneticAlgorithm {
 
     public Population population = new Population();
-    Individual fittest;
-    Individual secondFittest;
+    private Individual fittest;
+    private Individual secondFittest;
+    
+    public Individual getFittest() {
+        return fittest;
+    }
+
+    public void setFittest(Individual fittest) {
+        this.fittest = fittest;
+    }
+
+
+    public Individual getSecondFittest() {
+        return secondFittest;
+    }
+
+    public void setSecondFittest(Individual secondFittest) {
+        this.secondFittest = secondFittest;
+    }
+
+
     int generationCount = 0;
 
     // This is the eagerly created implementation of the GeneticAlgorithm class. It is thread-safe. 
@@ -17,6 +36,8 @@ public class GeneticAlgorithm {
     public static GeneticAlgorithm getInstance(){
         return instance_;
     }
+
+    
     
     //Selection
     void selection() {

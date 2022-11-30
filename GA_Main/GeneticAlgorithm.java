@@ -1,11 +1,32 @@
 package GA_Main;
 import java.util.Random;
 
+import GA_Crossover.CrossoverContext;
+import GA_Factories.GAConfig;
+import GA_Factories.GAFactory;
+import GA_Mutation.MutationContext;
+import GA_Selection.SelectionContext;
+
 public class GeneticAlgorithm {
 
     public Population population = new Population();
     private Individual fittest;
+    int generationCount = 0;
     private Individual secondFittest;
+
+    SelectionContext selectionContext = new SelectionContext();
+    CrossoverContext crossoverContext = new CrossoverContext();
+    MutationContext mutationContext = new MutationContext();
+
+    // This is the eagerly created implementation of the GeneticAlgorithm class. It is thread-safe. 
+	private static GeneticAlgorithm instance_ = new GeneticAlgorithm();
+
+    // Private constructor. It can not be envoked by another class
+    private GeneticAlgorithm(){}
+
+    public static GeneticAlgorithm getInstance(){
+        return instance_;
+    }
 
     public Individual getFittest() {
         return fittest;
@@ -23,71 +44,6 @@ public class GeneticAlgorithm {
     public void setSecondFittest(Individual secondFittest) {
         this.secondFittest = secondFittest;
     }
-
-
-    int generationCount = 0;
-
-    // This is the eagerly created implementation of the GeneticAlgorithm class. It is thread-safe. 
-	private static GeneticAlgorithm instance_ = new GeneticAlgorithm();
-
-    // Private constructor. It can not be envoked by another class
-    private GeneticAlgorithm(){}
-
-    public static GeneticAlgorithm getInstance(){
-        return instance_;
-    }
-
-    
-    
-    // //Selection
-    // void selection() {
-
-    //     //Select the most fittest individual
-    //     fittest = population.getFittest();
-
-    //     //Select the second most fittest individual
-    //     secondFittest = population.getSecondFittest();
-    // }
-
-    // //Crossover
-    // void crossover() {
-    //     Random rn = new Random();
-
-    //     //Select a random crossover point
-    //     int crossOverPoint = rn.nextInt(Individual.geneLength);
-
-    //     //Swap values among parents
-    //     for (int i = 0; i < crossOverPoint; i++) {
-    //         int temp = fittest.genes.get(i);
-    //         fittest.genes.add(i, secondFittest.genes.get(i));
-    //         secondFittest.genes.add(i, temp);
-
-    //     }
-
-    // }
-
-    // //Mutation
-    // void mutation() {
-    //     Random rn = new Random();
-
-    //     //Select a random mutation point
-    //     int mutationPoint = rn.nextInt(Individual.geneLength);
-
-    //     //Flip values at the mutation point
-    //     if (fittest.genes.get(mutationPoint) == 0) {
-    //         fittest.genes.add(mutationPoint,1);
-    //     } else {
-    //         fittest.genes.add(mutationPoint, 0);
-    //     }
-
-    //     mutationPoint = rn.nextInt(Individual.geneLength);
-
-    //     if (secondFittest.genes.get(mutationPoint) == 0) {
-    //         secondFittest.genes.add(mutationPoint,1);
-    //     } else {
-    //         secondFittest.genes.add(mutationPoint, 0);
-    //     }
-    // }
 
     // //Get fittest offspring
     Individual getFittestOffspring() {
@@ -110,6 +66,64 @@ public class GeneticAlgorithm {
 
         //Replace least fittest individual from most fittest offspring
         population.individuals.add(leastFittestIndex, getFittestOffspring());
+    }
+
+    static void run(GeneticAlgorithm geneticAlgorithm){
+        System.out.println("*".repeat(100));
+        System.out.println("Starting Genetic Algorithm.....\n");
+
+        Random rn = new Random();
+
+        // GeneticAlgorithm geneticAlgorithm = GeneticAlgorithm.getInstance();
+
+        //Initialize population
+        geneticAlgorithm.population.initializePopulation(12);
+
+        //Calculate fitness of each individual
+        geneticAlgorithm.population.calculateFitness();
+        System.out.println();
+        
+
+        GAFactory factoryConfig = new GAConfig();
+        // Create factory object to create selection, crossover and mutation objects,
+        // and send these returned objects in the respective context classes.
+        System.out.println("New Parameters used :");
+        geneticAlgorithm.selectionContext.setSelection(factoryConfig.selectionChoice(GAFactory.SELECTION.ELITE));
+        geneticAlgorithm.crossoverContext.setcrossover(factoryConfig.crossoverChoice(GAFactory.CROSSOVER.TWOPOINT));
+        geneticAlgorithm.mutationContext.setMutation(factoryConfig.mutationChoice());
+
+        
+        System.out.println("\n\nGeneration: " + geneticAlgorithm.generationCount + " Fittest: " + geneticAlgorithm.population.fittest);
+        //While population gets an individual with maximum fitness
+        while (geneticAlgorithm.population.fittest < Individual.geneLength) {
+            ++geneticAlgorithm.generationCount;
+
+            // Once selection, crossover and mutation objects are set we can then call executeStrategy.
+            geneticAlgorithm.selectionContext.executeStrategy();
+            geneticAlgorithm.crossoverContext.executeStrategy();
+
+            //Do mutation under a random probability
+            if (rn.nextInt()%10 > 5){
+                geneticAlgorithm.mutationContext.executeStrategy();
+            }
+
+            // Add fittest offspring to population
+            geneticAlgorithm.addFittestOffspring();
+
+            // Calculate new fitness value
+            geneticAlgorithm.population.calculateFitness();
+
+            System.out.println("Generation: " + geneticAlgorithm.generationCount + " Fittest: " + geneticAlgorithm.population.fittest);
+        }
+
+        System.out.println("\nSolution found in generation " + geneticAlgorithm.generationCount);
+        System.out.println("Fitness: "+geneticAlgorithm.population.getFittest().fitness);
+        System.out.print("Genes: ");
+        for (int i = 0; i < Individual.geneLength; i++) {
+            System.out.print(geneticAlgorithm.population.getFittest().genes.get(i));
+        }
+        System.out.println();
+        System.out.println("*".repeat(100));
     }
 
 }

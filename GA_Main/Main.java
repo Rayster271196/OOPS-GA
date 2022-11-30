@@ -4,6 +4,7 @@ import java.util.Random;
 import GA_Selection.*;
 import GA_Crossover.*;
 import GA_Mutation.*;
+import GA_Factories.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,24 +21,18 @@ public class Main {
 
         System.out.println("Generation: " + demo.generationCount + " Fittest: " + demo.population.fittest);
 
+        GAFactory factoryConfigOne = new GAConfigTwo();
+
         //While population gets an individual with maximum fitness
         while (demo.population.fittest < Individual.geneLength) {
             ++demo.generationCount;
 
-            //Do selection
-            // demo.selection();
-            Selection select = new EliteSelection();
-            select.selection();
-
-
-            //Do crossover
-            Crossover cross = new OnePointCrossover();
-            cross.crossover();
+            factoryConfigOne.selectionChoice().selection();
+            factoryConfigOne.crossoverChoice().crossover();
 
             //Do mutation under a random probability
             if (rn.nextInt()%10 > 5){
-                Mutation mut = new SwapMutation();
-                mut.mutation();
+                factoryConfigOne.mutationChoice().mutation();
             }
 
             //Add fittest offspring to population

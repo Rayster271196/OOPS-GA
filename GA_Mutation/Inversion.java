@@ -28,5 +28,8 @@ public class Inversion implements Mutation {
         } else {
             secondFittest.genes.add(mutationPoint, 0);
         }
+
+        demo.setFittest(fittest);
+        demo.setSecondFittest(secondFittest);
     }
 }

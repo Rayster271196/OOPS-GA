@@ -19,6 +19,7 @@ public class SwapMutation implements Mutation
             mutationPointone++;
             mutationPointone = mutationPointone % 10;
         }
+        // System.out.println(mutationPointone+" "+mutationPointone);
 
         if ((fittest.genes.get(mutationPointone)==fittest.genes.get(mutationPointtwo))
                 && (fittest.genes.get(mutationPointone)==0 ))

@@ -1,6 +1,10 @@
 package GA_Main;
 import java.util.Random;
 
+import GA_Selection.*;
+import GA_Crossover.*;
+import GA_Mutation.*;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -9,7 +13,7 @@ public class Main {
         GeneticAlgorithm demo = GeneticAlgorithm.getInstance();
 
         //Initialize population
-        demo.population.initializePopulation(10);
+        demo.population.initializePopulation(12);
 
         //Calculate fitness of each individual
         demo.population.calculateFitness();
@@ -21,14 +25,19 @@ public class Main {
             ++demo.generationCount;
 
             //Do selection
-            demo.selection();
+            // demo.selection();
+            Selection select = new EliteSelection();
+            select.selection();
+
 
             //Do crossover
-            demo.crossover();
+            Crossover cross = new OnePointCrossover();
+            cross.crossover();
 
             //Do mutation under a random probability
-            if (rn.nextInt()%7 < 5) {
-                demo.mutation();
+            if (rn.nextInt()%10 > 5){
+                Mutation mut = new SwapMutation();
+                mut.mutation();
             }
 
             //Add fittest offspring to population

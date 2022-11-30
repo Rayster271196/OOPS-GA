@@ -1,7 +1,6 @@
 package GA_Selection;
 
 import java.util.*;
-
 import GA_Main.Individual;
 
 public class FitnessComparator implements Comparator {
@@ -12,7 +11,7 @@ public class FitnessComparator implements Comparator {
 
         if (individualOne.fitness == individualTwo.fitness) {
             return 0;
-        } else if (individualOne.fitness > individualTwo.fitness) {
+        } else if (individualOne.fitness < individualTwo.fitness) {
             return 1;
         } else {
             return -1;

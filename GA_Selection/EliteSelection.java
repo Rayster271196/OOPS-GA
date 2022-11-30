@@ -8,6 +8,7 @@ public class EliteSelection implements Selection {
         
         Collections.sort(demo.population.individuals, new FitnessComparator());
 
+        // System.out.println()
         Random rn = new Random();
         int randomIndexOne = rn.nextInt(10);
         int randomIndexTwo = rn.nextInt(10);

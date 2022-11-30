@@ -4,26 +4,27 @@ import GA_Crossover.Crossover;
 // import GA_Main.Population;
 import GA_Mutation.Mutation;
 import GA_Selection.Selection;
+import GA_Selection.SelectionContext;
 
+public interface GAFactory {
+  SelectionContext selctionContext = new SelectionContext();
 
+  enum SELECTION {
+    ELITE,
+    TWOFITTEST,
+  }
 
-public interface GAFactory{
-    enum SELECTION{
-        ELITE,
-        TWOFITTEST
-    }
-    
-    enum CROSSOVER{
-        ONEPOINT,
-        TWOPOINT
-    }
-    
-    enum MUTATION{
-        INVERSION,
-        SWAP
-    }
+  enum CROSSOVER {
+    ONEPOINT,
+    TWOPOINT,
+  }
 
-    Selection selectionChoice();
-    Crossover crossoverChoice();
-    Mutation mutationChoice();
+  enum MUTATION {
+    INVERSION,
+    SWAP,
+  }
+
+  Selection selectionChoice(SELECTION selection);
+  Crossover crossoverChoice();
+  Mutation mutationChoice();
 }

@@ -27,7 +27,7 @@ public class Main {
         while (demo.population.fittest < Individual.geneLength) {
             ++demo.generationCount;
 
-            factoryConfigOne.selectionChoice().selection();
+            // factoryConfigOne.selectionChoice().selection();
             factoryConfigOne.crossoverChoice().crossover();
 
             //Do mutation under a random probability

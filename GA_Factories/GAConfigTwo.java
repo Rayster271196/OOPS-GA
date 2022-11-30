@@ -8,7 +8,7 @@ import GA_Selection.*;
 public class GAConfigTwo implements GAFactory {
 
   @Override
-  public Selection selectionChoice() {
+  public Selection selectionChoice(SELECTION selection) {
     return new TwoFittest();
   }
 

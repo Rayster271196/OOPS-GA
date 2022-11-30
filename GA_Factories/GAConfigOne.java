@@ -8,8 +8,11 @@ import GA_Selection.*;
 public class GAConfigOne implements GAFactory {
 
   @Override
-  public Selection selectionChoice() {
-    return new EliteSelection();
+  public Selection selectionChoice(SELECTION selection) {
+    // if( selection == SELECTION.ELITE) {
+    //   // selectionContext.
+    // }
+    return null;
   }
 
   @Override

@@ -1,14 +1,13 @@
+package GA_Main;
 import java.util.Random;
 
 public class GeneticAlgorithm {
 
-    //Population population = new Population();
+    Population population = new Population();
     Individual fittest;
     Individual secondFittest;
     int generationCount = 0;
 
-	AbstractFactory populationFactory = FactoryProvider.getFactory("Population");
-	PopulationInterface populationByFitness = populationFactory.create("Fitness");
     // This is the eagerly created implementation of the GeneticAlgorithm class. It is thread-safe. 
 	private static GeneticAlgorithm instance_ = new GeneticAlgorithm();
 
@@ -23,10 +22,10 @@ public class GeneticAlgorithm {
     void selection() {
 
         //Select the most fittest individual
-        fittest = populationByFitness.getFittest();
+        fittest = population.getFittest();
 
         //Select the second most fittest individual
-        secondFittest = populationByFitness.getSecondFittest();
+        secondFittest = population.getSecondFittest();
     }
 
     //Crossover
@@ -51,7 +50,7 @@ public class GeneticAlgorithm {
         Random rn = new Random();
 
         //Select a random mutation point
-        int mutationPoint = rn.nextInt(populationByFitness.individuals.get(0).geneLength);
+        int mutationPoint = rn.nextInt(Individual.geneLength);
 
         //Flip values at the mutation point
         if (fittest.genes.get(mutationPoint) == 0) {
@@ -60,7 +59,7 @@ public class GeneticAlgorithm {
             fittest.genes.add(mutationPoint, 0);
         }
 
-        mutationPoint = rn.nextInt(populationByFitness.individuals.get(0).geneLength);
+        mutationPoint = rn.nextInt(Individual.geneLength);
 
         if (secondFittest.genes.get(mutationPoint) == 0) {
             secondFittest.genes.add(mutationPoint,1);
@@ -86,10 +85,10 @@ public class GeneticAlgorithm {
         secondFittest.calcFitness();
 
         //Get index of least fit individual
-        int leastFittestIndex = populationByFitness.getLeastFittestIndex();
+        int leastFittestIndex = population.getLeastFittestIndex();
 
         //Replace least fittest individual from most fittest offspring
-        populationByFitness.individuals.add(leastFittestIndex, getFittestOffspring());
+        population.individuals.add(leastFittestIndex, getFittestOffspring());
     }
 
 }

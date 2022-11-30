@@ -1,10 +1,11 @@
+package GA_Main;
 import java.util.Random;
 import java.util.ArrayList;
 
 public class Individual {
 
-    int fitness = 0;
-    static int geneLength = 10; // Example gene : [0100011010]
+    public int fitness = 0;
+    public static int geneLength = 10; // Example gene : [0100011010]
     ArrayList<Integer> genes= new ArrayList<Integer>();
 
     public Individual() {

@@ -1,6 +1,9 @@
+package GA_Crossover;
 import java.util.Collections;
 import java.util.Random;
 import java.util.Random.*;
+
+import GA_Main.Individual;
 
 public class Twopointcrossover implements Crossover {
     public void crossover() {

@@ -1,4 +1,8 @@
+package GA_Selection;
 import java.util.Random;
+
+import GA_Main.Individual;
+import GA_Main.Population;
 
 public class Tournament implements Selection {
 

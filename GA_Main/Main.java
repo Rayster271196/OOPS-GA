@@ -1,3 +1,4 @@
+package GA_Main;
 import java.util.Random;
 
 public class Main {

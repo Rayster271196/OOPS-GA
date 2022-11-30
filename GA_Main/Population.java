@@ -1,8 +1,8 @@
+package GA_Main;
 import java.util.ArrayList;
 
 public class Population {
-    // Savio: Change to set
-    ArrayList<Individual> individuals = new ArrayList<Individual>();
+    public ArrayList<Individual> individuals = new ArrayList<Individual>();
     int fittest = 0;
 
     //Initialize population

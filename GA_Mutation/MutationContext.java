@@ -1,12 +1,10 @@
 package GA_Mutation;
 
 public class MutationContext {
-    /**
-   * Context variable
-   */
-  // Default behaviour will use Inversion if not selection method is set.
+   // Context variable
   private Mutation mutation;
-
+  
+  // Default behaviour will use Inversion if mutation method is not set.
   public MutationContext(){
     setMutation(new Inversion());
   }

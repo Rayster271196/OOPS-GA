@@ -1,12 +1,8 @@
 package GA_Crossover;
 
-// import java.util.Collections;
 import java.util.Random;
-// import java.util.Random.*;
 
-// import GA_Main.GeneticAlgorithm;
-import GA_Main.Individual;
-// import GA_Selection.EliteSelection;
+import GA_Population.Individual;
 
 public class TwoPointCrossover implements Crossover {
     public void crossover() {

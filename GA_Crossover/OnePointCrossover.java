@@ -2,8 +2,7 @@ package GA_Crossover;
 
 import java.util.Random;
 
-import GA_Main.Individual;
-// import GA_Selection.EliteSelection;
+import GA_Population.Individual;
 
 public class OnePointCrossover implements Crossover {
     public void crossover() {

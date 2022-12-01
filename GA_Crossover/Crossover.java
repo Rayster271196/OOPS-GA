@@ -1,8 +1,6 @@
 package GA_Crossover;
 
-import GA_Main.GeneticAlgorithm;
-
-// import GA_Selection.Selection;
+import GA_Runner.GeneticAlgorithm;
 
 public interface Crossover {
     public GeneticAlgorithm demo = GeneticAlgorithm.getInstance();

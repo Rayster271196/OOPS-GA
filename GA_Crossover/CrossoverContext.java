@@ -1,12 +1,10 @@
 package GA_Crossover;
 
 public class CrossoverContext {
-  /**
-   * Context variable
-   */
-  // Default behaviour will use OnePointCrossover if not selection method is set.
+  // Context variable
   private Crossover crossover;
   
+  // Default behaviour will use OnePointCrossover if crossover method is not set.
   public CrossoverContext(){
     setcrossover(new OnePointCrossover());
   }

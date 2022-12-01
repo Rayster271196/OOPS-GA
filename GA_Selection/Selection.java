@@ -1,6 +1,6 @@
 package GA_Selection;
 
-import GA_Main.GeneticAlgorithm;
+import GA_Runner.GeneticAlgorithm;
 
 // Selection interface
 public interface Selection {

@@ -1,12 +1,10 @@
 package GA_Selection;
 
 public class SelectionContext {
-  /**
-   * Context variable
-   */
-  // Default behaviour will use EliteSelection if not selection method is set.
+  // Context variable
   private Selection selection;
-
+  
+  // Default behaviour will use EliteSelection if selection method is not set.
   public SelectionContext(){
     setSelection(new EliteSelection());
   }

@@ -2,7 +2,7 @@ package GA_Mutation;
 
 import java.util.Random;
 
-import GA_Main.Individual;
+import GA_Population.Individual;
 
 public class SwapMutation implements Mutation
 {

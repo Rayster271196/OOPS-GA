@@ -1,9 +1,9 @@
-package GA_Main;
+package GA_Population;
 import java.util.ArrayList;
 
 public class Population {
     public ArrayList<Individual> individuals = new ArrayList<Individual>();
-    int fittest = 0;
+    public int fittest = 0;
 
     //Initialize population
     public void initializePopulation(int size) {

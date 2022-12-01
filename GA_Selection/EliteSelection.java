@@ -4,8 +4,6 @@ import java.util.*;
 
 public class EliteSelection implements Selection {
     public void selection() {
-        // ArrayList<Individual> selected = new ArrayList<Individual>();
-        
         Collections.sort(demo.population.individuals, new FitnessComparator());
 
         // System.out.println()

@@ -1,14 +1,12 @@
 package GA_Selection;
 
 import java.util.*;
-import GA_Main.Individual;
 
-public class FitnessComparator implements Comparator {
+import GA_Population.Individual;
+
+public class FitnessComparator implements Comparator<Individual> {
     @Override
-    public int compare(Object o1, Object o2) {
-        Individual individualOne = (Individual) o1;
-        Individual individualTwo = (Individual) o2;
-
+    public int compare(Individual individualOne, Individual individualTwo) {
         if (individualOne.fitness == individualTwo.fitness) {
             return 0;
         } else if (individualOne.fitness < individualTwo.fitness) {

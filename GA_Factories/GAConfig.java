@@ -1,7 +1,6 @@
 package GA_Factories;
 
 import GA_Crossover.*;
-// import GA_Main.Population;
 import GA_Mutation.*;
 import GA_Selection.*;
 

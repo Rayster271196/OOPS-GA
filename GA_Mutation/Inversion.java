@@ -4,6 +4,7 @@ import java.util.Random;
 
 import GA_Population.Individual;
 
+//One concrete class that implements Mutation interface, it inverses genes based on the rule
 public class Inversion implements Mutation {
     public void mutation() {
         Random rn = new Random();

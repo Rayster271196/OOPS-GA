@@ -6,8 +6,9 @@ public class Individual {
 
     public int fitness = 0;
     public static int geneLength = 10; // Example gene : [0100011010]
-    public ArrayList<Integer> genes= new ArrayList<Integer>();
+    public ArrayList<Integer> genes= new ArrayList<Integer>(); //ArrayList to store random generated genes
 
+	//A list of genes randomly generated when Individual object initialized
     public Individual() {
         Random rn = new Random();
 

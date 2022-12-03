@@ -4,6 +4,7 @@ import java.util.*;
 
 import GA_Population.Individual;
 
+//Concrete class for Comparator that compare each Individual's fitness
 public class FitnessComparator implements Comparator<Individual> {
     @Override
     public int compare(Individual individualOne, Individual individualTwo) {

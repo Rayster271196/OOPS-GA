@@ -6,7 +6,7 @@ import GA_Selection.*;
 
 public class GAConfig implements GAFactory {
 
-  
+  //Return corresponeded object according to SELECTION
   @Override
   public Selection selectionChoice(SELECTION selection) {
     if( selection == SELECTION.ELITE) {
@@ -20,6 +20,7 @@ public class GAConfig implements GAFactory {
     }
   }
 
+  //Return corresponeded object according to CROSSOVER
   @Override
   public Crossover crossoverChoice(CROSSOVER crossover) {
     if( crossover == CROSSOVER.ONEPOINT) {
@@ -33,6 +34,7 @@ public class GAConfig implements GAFactory {
     }
   }
 
+  //Return corresponeded object according to num
   @Override
   public Mutation mutationChoice() {
     double num = Math.random() * 2;

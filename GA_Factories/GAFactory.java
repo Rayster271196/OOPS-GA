@@ -25,7 +25,7 @@ public interface GAFactory {
     SWAP
   }
 
-  Selection selectionChoice(SELECTION selection);
-  Crossover crossoverChoice(CROSSOVER crossover);
-  Mutation mutationChoice();
+  abstract Selection selectionChoice(SELECTION selection);
+  abstract Crossover crossoverChoice(CROSSOVER crossover);
+  abstract Mutation mutationChoice();
 }

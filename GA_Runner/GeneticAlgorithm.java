@@ -48,7 +48,7 @@ public class GeneticAlgorithm {
         this.secondFittest = secondFittest;
     }
 
-    // //Get fittest offspring
+    //Get fittest offspring
     Individual getFittestOffspring() {
         if (fittest.fitness > secondFittest.fitness) {
             return fittest;

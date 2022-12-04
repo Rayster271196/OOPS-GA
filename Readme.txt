@@ -66,5 +66,4 @@ Encapsulation is done in the places where it is neccessary by using getters and 
 Data Abstraction is implemented throught the program by ensuring that the given module performs its own function.
 Open-Close principle is ensurd in the program where the configuration of the GA can be modifed by changing the subclasses and not the superclass itself. 
 the process such as Selection, Crossover, Mutation work on the population. this enables the user to change the logic of the program by altering the method used and work on population. 
-The code is properly packaged as per the methods, the gentic algorithm and the runner. Import statments will be use when neccessary to use the revlevant packages.
 Error handling is also done to ensure that the wrong paramenters will not be passed. 

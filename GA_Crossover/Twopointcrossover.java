@@ -4,6 +4,7 @@ import java.util.Random;
 
 import GA_Population.Individual;
 
+//One concrete class that implements Crossover interface, crossover two points at a time
 public class TwoPointCrossover implements Crossover {
     public void crossover() {
         Random rn = new Random();

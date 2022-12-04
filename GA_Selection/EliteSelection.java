@@ -2,6 +2,7 @@ package GA_Selection;
 
 import java.util.*;
 
+//One concrete class that implements Selection interface
 public class EliteSelection implements Selection {
     public void selection() {
         Collections.sort(demo.population.individuals, new FitnessComparator());

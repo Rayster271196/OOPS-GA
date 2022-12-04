@@ -8,6 +8,7 @@ import GA_Mutation.MutationContext;
 import GA_Factories.*;
 import GA_Population.*;
 
+//Logical codes where GeneticAlgorithm really works
 public class GeneticAlgorithm {
 
     public Population population = new Population();
@@ -15,6 +16,7 @@ public class GeneticAlgorithm {
     private Individual secondFittest;
     int generationCount = 0;
 
+	//Context objects for Selection, Crossover and Mutation objects
     SelectionContext selectionContext = new SelectionContext();
     CrossoverContext crossoverContext = new CrossoverContext();
     MutationContext mutationContext = new MutationContext();
@@ -46,7 +48,7 @@ public class GeneticAlgorithm {
         this.secondFittest = secondFittest;
     }
 
-    // //Get fittest offspring
+    //Get fittest offspring
     Individual getFittestOffspring() {
         if (fittest.fitness > secondFittest.fitness) {
             return fittest;

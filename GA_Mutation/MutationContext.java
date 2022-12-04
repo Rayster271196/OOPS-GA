@@ -1,5 +1,7 @@
 package GA_Mutation;
 
+//Context class for Mutation interface and its implementation classes
+//Hold Mutation object's lifetime and manage it
 public class MutationContext {
    // Context variable
   private Mutation mutation;

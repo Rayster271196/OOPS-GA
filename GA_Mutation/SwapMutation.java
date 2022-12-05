@@ -1,12 +1,23 @@
 package GA_Mutation;
 
 import java.util.Random;
-
 import GA_Population.Individual;
 
-//One concrete class that implements Mutation interface, it swap genes based on the rule
+// One concrete class that implements Mutation interface, it swap genes based on the rule
+
+/**
+ * This is the subclass SwapMutation of Mutation interface. It modifies the method mutation() as per the logic of the mutation method 
+ * that is used.
+ */
 public class SwapMutation implements Mutation
 {
+
+/**
+ * This is the mutation() method of SwapMuation subclass.
+ * In this method we mutate the individuals by randomly getting two mutation points as per the gene length then we flip the values of the genes of the 
+ * fittest and second fittest in both the mutation points.
+ * We then use setFittest() to change the fittest of the instance.
+ */
     public void mutation()
     {
         Random rn = new Random();

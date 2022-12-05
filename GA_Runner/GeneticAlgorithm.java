@@ -8,7 +8,17 @@ import GA_Mutation.MutationContext;
 import GA_Factories.*;
 import GA_Population.*;
 
-//Logical codes where GeneticAlgorithm really works
+/**
+ * This is the GeneticAlgorithm class which is responsible for creating the instance.
+ * This is where the Singleton Pattern is implemented. There is only a need of one instance where that instance parameters should be modifed to get the result.
+ * This allows better consisitency and makes sure all the function are working on the same data.
+ * It is responsible for creating the context of each of the methods. 
+ * It also holds the run() function which is where the user interacts and can change the choice in the class for the methods and enters the input for the gene-length and population
+ * You can also change the type of methods use by using the appropriate enumerations
+ * The fittest and second fittest which are used by the process can be accessed the setters and getters 
+ */
+
+// Logical codes where GeneticAlgorithm really works
 public class GeneticAlgorithm {
 
     public Population population = new Population();
@@ -48,6 +58,11 @@ public class GeneticAlgorithm {
         this.secondFittest = secondFittest;
     }
 
+/**
+ * method getFittestOffspring(): Returns the fittest offspring in the population
+ *
+ * @return Individual
+ */
     //Get fittest offspring
     Individual getFittestOffspring() {
         if (fittest.fitness > secondFittest.fitness) {
@@ -56,8 +71,12 @@ public class GeneticAlgorithm {
         return secondFittest;
     }
 
-
-    //Replace least fittest individual from most fittest offspring
+/**
+ * method addFittestOffspring(): Replaces the least-fit member with the most fittest membr in the population
+ *
+ * @return void
+ */
+// Replace least fittest individual from most fittest offspring
     void addFittestOffspring() {
 
         //Update fitness values of offspring
@@ -71,6 +90,11 @@ public class GeneticAlgorithm {
         population.individuals.add(leastFittestIndex, getFittestOffspring());
     }
 
+/**
+ * method run(): In this method the user can enter the gene length and the population limit.
+ * We can also change the choice of the methods in this function to suit our needs.
+ * It is also responsible for displaying the number if generations that it took and the results of the GA.
+ */
     static void run(GeneticAlgorithm geneticAlgorithm){
         Scanner scan = new Scanner(System.in);
         Random rn = new Random();

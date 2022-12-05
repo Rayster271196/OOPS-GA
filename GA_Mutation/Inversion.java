@@ -1,11 +1,22 @@
 package GA_Mutation;
 
 import java.util.Random;
-
 import GA_Population.Individual;
 
-//One concrete class that implements Mutation interface, it inverses genes based on the rule
+// One concrete class that implements Mutation interface, it inverses genes based on the rule
+
+/**
+ * This is the subclass Inversion of Mutation interface. It modifies the method mutation() as per the logic of the mutation method 
+ * that is used.
+ */
 public class Inversion implements Mutation {
+
+/**
+ * This is the mutation() method of Inversion subclass.
+ * In this method we mutate the individuals by randomly getting a mutation point as per the gene length then we flip the values of the genes of the 
+ * fittest and second fittest.
+ * We then use setFittest() and setSecondFittest() to change the fittest and the second fittest of the instance.
+ */
     public void mutation() {
         Random rn = new Random();
 

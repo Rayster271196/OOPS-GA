@@ -6,35 +6,50 @@ import GA_Selection.*;
 
 public class GAConfig implements GAFactory {
 
-  //Return corresponeded object according to SELECTION
+  // Return corresponeded object according to SELECTION
+  /**
+   * selectionChoice() will create a new class as per the mentioned type if
+   * nothing is mentioned it takes the default choice that was given.
+   *
+   * @param selection
+   * @return Selection
+   */
   @Override
   public Selection selectionChoice(SELECTION selection) {
-    if( selection == SELECTION.ELITE) {
+    if (selection == SELECTION.ELITE) {
       return new EliteSelection();
-    }
-    else if(selection == SELECTION.TWOFITTEST){
+    } else if (selection == SELECTION.TWOFITTEST) {
       return new TwoFittest();
-    }
-    else{
+    } else {
       throw new IllegalArgumentException("Illegal Argument: " + selection.name());
     }
   }
 
-  //Return corresponeded object according to CROSSOVER
+  // Return corresponeded object according to CROSSOVER
+  /**
+   * 
+   * crossoverChoice() will create a new class as per the mentioned type if
+   * nothing is mentioned it takes the default choice that was given.
+   *
+   * @param crossover
+   * @return Crossover
+   */
   @Override
   public Crossover crossoverChoice(CROSSOVER crossover) {
-    if( crossover == CROSSOVER.ONEPOINT) {
+    if (crossover == CROSSOVER.ONEPOINT) {
       return new OnePointCrossover();
-    }
-    else if(crossover == CROSSOVER.TWOPOINT){
+    } else if (crossover == CROSSOVER.TWOPOINT) {
       return new TwoPointCrossover();
-    }
-    else{
+    } else {
       throw new IllegalArgumentException("Illegal Argument: " + crossover.name());
     }
   }
 
-  //Return corresponeded object according to num
+  /**
+   * mutationChoice() decides the mutation choice based on the probabilty.
+   *
+   * @return Mutation
+   */
   @Override
   public Mutation mutationChoice() {
     double num = Math.random() * 2;

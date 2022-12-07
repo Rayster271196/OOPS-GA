@@ -16,7 +16,8 @@ public class Population {
     public ArrayList<Individual<Integer>> individuals = new ArrayList<Individual<Integer>>();
     public int fittest = 0;
 
-// Initialize population
+// This function is used to add the individuals into a population.
+
 /**
  * This is the method intializePopulation() which is used to add the individuals into the population.
  * 
@@ -30,6 +31,7 @@ public class Population {
     }
 
 // Get the fittest individual
+
 /**
  * This is the method getFittest() which is used to get the fittest of the population.
  * 
@@ -52,6 +54,7 @@ public class Population {
     }
 
 // Get the second most fittest individual
+
 /**
  * This is the method getSecondFittest() which is used to get the second fittest of the population.
  * 
@@ -61,20 +64,21 @@ public class Population {
         int maxFit1 = 0;
         int maxFit2 = 0;
         for (int i = 0; i < individuals.size(); i++) {
-			//Only execute this clause if new value is larger the largest previous one
+			
             if (individuals.get(i).fitness > individuals.get(maxFit1).fitness) {
                 maxFit2 = maxFit1;
                 maxFit1 = i;
-            }//Only enter this clause if new value is smaller than the largest one but larger than the second largest one 
+            }
 			else if (individuals.get(i).fitness > individuals.get(maxFit2).fitness) {
                 maxFit2 = i;
             }
         }
-		//return the second most fitness individual
+		
         return individuals.get(maxFit2);
     }
 
 // Get index of least fittest individual
+
 /**
  * This is the method getLeastFittestIndex() which is used to get the least fittest index of the population.
  * 
@@ -84,7 +88,7 @@ public class Population {
         int minFitVal = Integer.MAX_VALUE;
         int minFitIndex = 0;
         for (int i = 0; i < individuals.size(); i++) {
-			//Only enter this clause if new value smaller than the previous smallest one
+			
             if (minFitVal >= individuals.get(i).fitness) {
                 minFitVal = individuals.get(i).fitness;
                 minFitIndex = i;
@@ -94,6 +98,7 @@ public class Population {
     }
 
 // Calculate fitness of each individual
+
 /**
  * This is the method calculateFitness() which is used to calculate the fitness of the individuals.
  * 
@@ -103,7 +108,7 @@ public class Population {
         for (int i = 0; i < individuals.size(); i++) {
             individuals.get(i).calcFitness();
         }
-		//Run this method to assign the max fitness value to fitness variable
+		
         getFittest();
     }
 

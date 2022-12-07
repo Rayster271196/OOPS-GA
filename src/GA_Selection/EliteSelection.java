@@ -2,7 +2,7 @@ package GA_Selection;
 
 import java.util.*;
 
-//One concrete class that implements Selection interface
+// The implementation of the interface Seelction in the subclass EliteSelection as per the algorithm. 
 
 /**
  * This is the subclass EliteSelection of the interface Selection. It modfies the selection() method as per the logic of EliteSelection

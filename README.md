@@ -1,10 +1,9 @@
 # OOPS-GA
-This is the group project submitted by
-(group members student id here) 
-1. 
-2.
-3.
-4.
+This is the group project submitted by: 
+1. 22251833 Rayster
+2. 22251836 Savio
+3. 21250188 Soorya
+4. 21250758 Qing
 
 This program exctues the basic working of a Genetic Algorithm.
 The idea of a GA is:
@@ -68,6 +67,12 @@ Mutation is also done by using a random probability between the two mutation met
 Encapsulation is done in the places where it is neccessary by using getters and setters to access the variables if needed in any other modules.
 Data Abstraction is implemented throught the program by ensuring that the given module performs its own function.
 Open-Close principle is ensurd in the program where the configuration of the GA can be modifed by changing the subclasses and not the superclass itself. 
+Generics is used in the class Individual<T extends Integer> for when the population is created it can be created by using any suitable type of collections. The use of generics here allow the user to populate the population by using any suitable collections type of integer. In this case we have choosen ArrayList. 
 the process such as Selection, Crossover, Mutation work on the population. this enables the user to change the logic of the program by altering the method used and work on population. 
 The code is properly packaged as per the methods, the gentic algorithm and the runner. Import statments will be use when neccessary to use the revlevant packages.
 Error handling is also done to ensure that the wrong paramenters will not be passed. 
+
+*****************************************************************************************************
+At the last step, we also have done enough times tests to this program, as software testing identifies bugs and issues in the development process 
+so they're fixed prior to product launch. Also this approach ensures that quality program is delivered, which in turn meets project requirements  
+and specification.

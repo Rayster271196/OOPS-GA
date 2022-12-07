@@ -61,16 +61,16 @@ public class Population {
         int maxFit1 = 0;
         int maxFit2 = 0;
         for (int i = 0; i < individuals.size(); i++) {
-			//Only execute this clause if new value is larger the largest previous one
+			
             if (individuals.get(i).fitness > individuals.get(maxFit1).fitness) {
                 maxFit2 = maxFit1;
                 maxFit1 = i;
-            }//Only enter this clause if new value is smaller than the largest one but larger than the second largest one 
+            }
 			else if (individuals.get(i).fitness > individuals.get(maxFit2).fitness) {
                 maxFit2 = i;
             }
         }
-		//return the second most fitness individual
+		
         return individuals.get(maxFit2);
     }
 
@@ -84,7 +84,7 @@ public class Population {
         int minFitVal = Integer.MAX_VALUE;
         int minFitIndex = 0;
         for (int i = 0; i < individuals.size(); i++) {
-			//Only enter this clause if new value smaller than the previous smallest one
+			
             if (minFitVal >= individuals.get(i).fitness) {
                 minFitVal = individuals.get(i).fitness;
                 minFitIndex = i;
@@ -103,7 +103,7 @@ public class Population {
         for (int i = 0; i < individuals.size(); i++) {
             individuals.get(i).calcFitness();
         }
-		//Run this method to assign the max fitness value to fitness variable
+		
         getFittest();
     }
 

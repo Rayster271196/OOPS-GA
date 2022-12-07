@@ -1,6 +1,9 @@
 package GA_Runner;
 import java.util.Random;
 import java.util.Scanner;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 
 import GA_Selection.*;
 import GA_Mutation.*;
@@ -173,10 +176,22 @@ public class GeneticAlgorithm {
         }
         catch (Exception e){
             System.out.println(e.getMessage());
+			appendToFile(e);
         }
         finally{
             scan.close();
         }
     }
+    public static void appendToFile(Exception e) {
+        try {
+            FileWriter New_File = new FileWriter("Error-log.txt", true);
+            BufferedWriter Buff_File = new BufferedWriter(New_File);
+            PrintWriter Print_File = new PrintWriter(Buff_File, true);
+            e.printStackTrace(Print_File);
+        }
+        catch (Exception ie) {
+            throw new RuntimeException("Cannot write the Exception to file", ie);
+        }
+    }	
 
 }

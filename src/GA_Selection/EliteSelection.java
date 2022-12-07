@@ -2,20 +2,20 @@ package GA_Selection;
 
 import java.util.*;
 
-// The implementation of the interface Seelction in the subclass EliteSelection as per the algorithm. 
-
 /**
- * This is the subclass EliteSelection of the interface Selection. It modfies the selection() method as per the logic of EliteSelection
+ * This is a concrete class EliteSelection which implements the interface Selection.
+ * It does the selection as per the logic of EliteSelection which takes randomly any two individual from the 
+ * top 10 most fittest individuals.
  * 
  */
 public class EliteSelection implements Selection {
 
-/**
- * This is the selection() method of EliteSelection.
- * In this we first sort the population as per their fitness and then we randomly pick two of the individuals and make them the 
- * fittest and the second-fittest
- *
- */
+    /**
+     * This is the selection() method of EliteSelection.
+     * In this we first sort the population as per their fitness and then we randomly pick two of the individuals from the
+     * top 10 fittest individuals and then set them as fittest and secondFittest.
+     *
+     */
     public void selection() {
         Collections.sort(demo.population.individuals, new FitnessComparator());
 

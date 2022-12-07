@@ -1,10 +1,9 @@
 # OOPS-GA
-This is the group project submitted by
-(group members student id here) 
-1. 
-2.
-3.
-4.
+This is the group project submitted by: 
+1. 22251833 Rayster
+2. 22251836 Savio
+3. 21250188 Soorya
+4. 21250758 Qing
 
 This program exctues the basic working of a Genetic Algorithm.
 The idea of a GA is:

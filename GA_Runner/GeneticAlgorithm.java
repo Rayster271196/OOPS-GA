@@ -2,9 +2,9 @@ package GA_Runner;
 import java.util.Random;
 import java.util.Scanner;
 
-import GA_Crossover.CrossoverContext;
-import GA_Selection.SelectionContext;
-import GA_Mutation.MutationContext;
+import GA_Selection.*;
+import GA_Mutation.*;
+import GA_Crossover.*;
 import GA_Factories.*;
 import GA_Population.*;
 
@@ -22,8 +22,8 @@ import GA_Population.*;
 public class GeneticAlgorithm {
 
     public Population population = new Population();
-    private Individual fittest;
-    private Individual secondFittest;
+    private Individual<Integer> fittest;
+    private Individual<Integer> secondFittest;
     int generationCount = 0;
 
 	//Context objects for Selection, Crossover and Mutation objects
@@ -41,30 +41,30 @@ public class GeneticAlgorithm {
         return instance_;
     }
 
-    public Individual getFittest() {
+    public Individual<Integer> getFittest() {
         return fittest;
     }
 
-    public void setFittest(Individual fittest) {
+    public void setFittest(Individual<Integer> fittest) {
         this.fittest = fittest;
     }
 
 
-    public Individual getSecondFittest() {
+    public Individual<Integer> getSecondFittest() {
         return secondFittest;
     }
 
-    public void setSecondFittest(Individual secondFittest) {
+    public void setSecondFittest(Individual<Integer> secondFittest) {
         this.secondFittest = secondFittest;
     }
 
 /**
- * method getFittestOffspring(): Returns the fittest offspring in the population
+ * getFittestOffspring() finds the fittest offspring in the population
  *
- * @return Individual
+ * @return the fittest offspring in the population
  */
     //Get fittest offspring
-    Individual getFittestOffspring() {
+    Individual<Integer> getFittestOffspring() {
         if (fittest.fitness > secondFittest.fitness) {
             return fittest;
         }
@@ -99,6 +99,12 @@ public class GeneticAlgorithm {
         Scanner scan = new Scanner(System.in);
         Random rn = new Random();
         try{
+            System.out.println("Default parameters:");
+            System.out.println(geneticAlgorithm.selectionContext);
+            System.out.println(geneticAlgorithm.crossoverContext);
+            System.out.println(geneticAlgorithm.mutationContext);
+
+
             System.out.println("*".repeat(100));
             System.out.println("Starting Genetic Algorithm.....\n");
 
@@ -123,11 +129,14 @@ public class GeneticAlgorithm {
             GAFactory factoryConfig = new GAConfig();
             // Create factory object to create selection, crossover and mutation objects,
             // and send these returned objects in the respective context classes.
-            System.out.println("New Parameters used :");
             geneticAlgorithm.selectionContext.setSelection(factoryConfig.selectionChoice(GAFactory.SELECTION.TWOFITTEST));
             geneticAlgorithm.crossoverContext.setcrossover(factoryConfig.crossoverChoice(GAFactory.CROSSOVER.TWOPOINT));
-            geneticAlgorithm.mutationContext.setMutation(factoryConfig.mutationChoice());
-
+            geneticAlgorithm.mutationContext.setMutation(factoryConfig.mutationChoice(GAFactory.MUTATION.INVERSION));
+            
+            System.out.println("New Parameters used :");
+            System.out.println(geneticAlgorithm.selectionContext);
+            System.out.println(geneticAlgorithm.crossoverContext);
+            System.out.println(geneticAlgorithm.mutationContext);
             
             System.out.println("\n\nGeneration: " + geneticAlgorithm.generationCount + " Fittest: " + geneticAlgorithm.population.fittest);
             //While population gets an individual with maximum fitness
@@ -140,6 +149,7 @@ public class GeneticAlgorithm {
 
                 //Do mutation under a random probability
                 if (rn.nextInt()%10 > 3){
+                    System.out.println("Mutating.....");
                     geneticAlgorithm.mutationContext.executeStrategy();
                 }
 

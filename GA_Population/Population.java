@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Population {
 // ArrayList to store Individual objects
-    public ArrayList<Individual> individuals = new ArrayList<Individual>();
+    public ArrayList<Individual<Integer>> individuals = new ArrayList<Individual<Integer>>();
     public int fittest = 0;
 
 // Initialize population
@@ -23,10 +23,9 @@ public class Population {
  * @param size
  */
     public void initializePopulation(int size) {
-        individuals = new ArrayList<Individual>(size);
+        individuals = new ArrayList<Individual<Integer>>();
         for (int i = 0; i < size; i++) {
-
-            individuals.add(new Individual());
+            individuals.add(new Individual<Integer>());
         }
     }
 
@@ -36,7 +35,7 @@ public class Population {
  * 
  * @return Individual
  */
-    public Individual getFittest() {
+    public Individual<Integer> getFittest() {
         int maxFit = Integer.MIN_VALUE;
         int maxFitIndex = 0;
         for (int i = 0; i < individuals.size(); i++) {
@@ -58,7 +57,7 @@ public class Population {
  * 
  * @return Individual
  */
-    public Individual getSecondFittest() {
+    public Individual<Integer> getSecondFittest() {
         int maxFit1 = 0;
         int maxFit2 = 0;
         for (int i = 0; i < individuals.size(); i++) {

@@ -24,7 +24,7 @@ public class SwapMutation implements Mutation
         int mutationPointone = rn.nextInt(Individual.geneLength);
         int mutationPointtwo = rn.nextInt(Individual.geneLength);
 
-        Individual fittest = demo.population.getFittest();
+        Individual<Integer> fittest = demo.population.getFittest();
 
         //Make sure the points are not the same 
         if (mutationPointone == mutationPointtwo) {

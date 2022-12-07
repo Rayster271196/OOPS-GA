@@ -51,9 +51,9 @@ public interface GAFactory {
   abstract Crossover crossoverChoice(CROSSOVER crossover);
 
   /**
-   * Decides the type of Mutation to be used based on a probabilty value
-   * 
+   * Decides the type of Mutation to be used
+   * @param mutation
    * @return Mutation
    */
-  abstract Mutation mutationChoice();
+  abstract Mutation mutationChoice(MUTATION mutation);
 }

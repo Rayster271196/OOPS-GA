@@ -20,8 +20,8 @@ public class Inversion implements Mutation {
     public void mutation() {
         Random rn = new Random();
 
-        Individual fittest = demo.population.getFittest();
-        Individual secondFittest = demo.population.getSecondFittest();
+        Individual<Integer> fittest = demo.population.getFittest();
+        Individual<Integer> secondFittest = demo.population.getSecondFittest();
 
         // Select a random mutation point
         int mutationPoint = rn.nextInt(Individual.geneLength);

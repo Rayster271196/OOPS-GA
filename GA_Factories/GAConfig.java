@@ -6,13 +6,12 @@ import GA_Selection.*;
 
 public class GAConfig implements GAFactory {
 
-  // Return corresponeded object according to SELECTION
   /**
    * selectionChoice() will create a new class as per the mentioned type if
    * nothing is mentioned it takes the default choice that was given.
    *
    * @param selection
-   * @return Selection
+   * @return corresponeded object according to SELECTION
    */
   @Override
   public Selection selectionChoice(SELECTION selection) {
@@ -25,14 +24,13 @@ public class GAConfig implements GAFactory {
     }
   }
 
-  // Return corresponeded object according to CROSSOVER
   /**
    * 
    * crossoverChoice() will create a new class as per the mentioned type if
    * nothing is mentioned it takes the default choice that was given.
    *
    * @param crossover
-   * @return Crossover
+   * @return corresponeded object according to CROSSOVER
    */
   @Override
   public Crossover crossoverChoice(CROSSOVER crossover) {
@@ -46,17 +44,22 @@ public class GAConfig implements GAFactory {
   }
 
   /**
+   * 
+   * mutationChoice() will create a new class as per the requested mutation type,
+   * if incorrect mutation is passed IllegalArgumentException will be thrown.
+   * 
    * mutationChoice() decides the mutation choice based on the probabilty.
-   *
-   * @return Mutation
+   *@param mutation
+   * @return corresponeded object according to Mutation
    */
   @Override
-  public Mutation mutationChoice() {
-    double num = Math.random() * 2;
-    if (num <= 0.5) {
+  public Mutation mutationChoice(MUTATION mutation) {
+    if (mutation == MUTATION.INVERSION) {
       return new Inversion();
-    } else {
+    } else if (mutation == MUTATION.SWAP) {
       return new SwapMutation();
+    } else {
+      throw new IllegalArgumentException("Illegal Argument: " + mutation.name());
     }
   }
 }

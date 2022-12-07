@@ -9,7 +9,7 @@ public class CrossoverContext {
   /**
    * This is the constructor for the class CrossoverContext it will allocate a default crossover method if nothing is passed
    * from the GeneticAlgorithm class.
-   * The default crossover method is OnePointCrossover.
+   * The default crossover method is OnePointCrossover. 
    */
   public CrossoverContext(){
     setcrossover(new OnePointCrossover());

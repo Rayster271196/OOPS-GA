@@ -18,29 +18,32 @@ The idea of a GA is:
 
 Below is the sample output:
 
-Selection method used is : EliteSelection
-Crossover method used is : OnePointCrossover
-Mutation method used is : Inversion
+Default parameters:
+Selection method : EliteSelection   
+Crossover method : OnePointCrossover
+Mutation method : Inversion
 ****************************************************************************************************
 Starting Genetic Algorithm.....
 
 Enter gene length:
-20 
+10
 Enter size of population: 
-150
+250
 
 New Parameters used :
-Selection method used is : TwoFittest
-Crossover method used is : TwoPointCrossover
-Mutation method used is : SwapMutation
+Selection method : TwoFittest
+Crossover method : TwoPointCrossover
+Mutation method : Inversion
 
 
-Generation: 0 Fittest: 15
-Generation: 1 Fittest: 20
+Generation: 0 Fittest: 9
+Mutating.....
+Generation: 1 Fittest: 9
+Generation: 2 Fittest: 10
 
-Solution found in generation 1
-Fitness: 20
-Genes: 11111111111111111111
+Solution found in generation 2
+Fitness: 10
+Genes: 1111111111
 ****************************************************************************************************
 
 The explanation of the sample o/p:

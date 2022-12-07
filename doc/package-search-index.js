@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"GA_Crossover"},{"l":"GA_Factories"},{"l":"GA_Mutation"},{"l":"GA_Population"},{"l":"GA_Runner"},{"l":"GA_Selection"}];updateSearchResults();

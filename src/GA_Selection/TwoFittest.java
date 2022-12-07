@@ -1,6 +1,6 @@
 package GA_Selection;
 
-//One concrete class that implements Selection interface, set most fittest and the second fittest at a time
+// Subclass of Selection interface that implements TwoFittest algorithm, set most fittest and the second fittest at a time.
 
 /**
  * This is the subclass TwoFittest of the interface Selection. It modfies the selection() method as per the logic of TwoFittest

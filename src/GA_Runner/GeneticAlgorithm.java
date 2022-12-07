@@ -182,6 +182,13 @@ public class GeneticAlgorithm {
             scan.close();
         }
     }
+
+
+/** 
+ * method appendtoFile(): This function catches if there is any error in the output display page and it stores it in a Error-log.txt,
+ * in case any errors is detected.
+ * @param e
+ */
     public static void appendToFile(Exception e) {
         try {
             FileWriter New_File = new FileWriter("Error-log.txt", true);

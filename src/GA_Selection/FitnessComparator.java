@@ -4,7 +4,8 @@ import java.util.*;
 
 import GA_Population.Individual;
 
-//Concrete class for Comparator that compare each Individual's fitness
+// FitnessComparator is the modified version of the comparator class, which compares the individuals based on their fitness. 
+// This function is used to sort the population.
 
 /**
  * This is the modified version of the Comparator class where we modify the the compare() method which will allow us to later sort

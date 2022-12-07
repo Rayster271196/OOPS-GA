@@ -3,7 +3,7 @@ package GA_Crossover;
 import java.util.Random;
 import GA_Population.Individual;
 
-// One concrete class that implements Crossover interface, crossover two points at a time
+// One concrete class that implements Crossover interface, crossovers two points at a time
 
 /**
  * This is the subclass TwoPointCrossover of Crossover interface. It modifies the method crossover() as per the logic of the crossover method 

@@ -2,8 +2,7 @@ package GA_Crossover;
 
 import GA_Runner.GeneticAlgorithm;
 
-//Crossover interface with GeneticAlgorithm instance to allow concrete 
-//classes to access GeneticAlgorithm object.
+// Crossover interface with GeneticAlgorithm instance to allow concrete classes to access GeneticAlgorithm object.
 
 /**
  * This is the interface for Crossover. It has two subclasses OnePointCrossover and TwoPointCrossover.

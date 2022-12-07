@@ -6,6 +6,7 @@ import java.util.ArrayList;
 /**
  * This is the Individual class which is responsible for creating the an individual where a collection of them will be in a population.
  * It has a constructor where the genes are added and the fitness is intialized.
+ * Generics is implemented for the class Individual where an Arraylist of integers is used in the population.
  */
 public class Individual<T extends Integer> {
 

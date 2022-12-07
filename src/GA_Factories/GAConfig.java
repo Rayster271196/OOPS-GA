@@ -44,7 +44,6 @@ public class GAConfig implements GAFactory {
   }
 
   /**
-   * 
    * mutationChoice() will create a new class as per the requested mutation type,
    * if incorrect mutation is passed IllegalArgumentException will be thrown.
    * 

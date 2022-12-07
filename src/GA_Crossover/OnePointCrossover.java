@@ -4,7 +4,7 @@ import java.util.Random;
 
 import GA_Population.Individual;
 
-// One concrete class that implements Crossover interface, crossover one point at a time
+// One concrete class that implements Crossover interface, crossovers one point at a time
 
 /**
  * This is the subclass OnePointCrossover of Crossover interface. It modifies the method crossover() as per the logic of the crossover method 

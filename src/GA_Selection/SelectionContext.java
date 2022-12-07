@@ -1,7 +1,7 @@
 package GA_Selection;
 
-// Context class for Selection interface and its implementation classes
-// Hold Selection object's lifetime and manage it
+// Context class for Selection interface and its implementation classes, hold Selection object's lifetime and manage it
+
 public class SelectionContext {
   // Context variable
   private Selection selection;

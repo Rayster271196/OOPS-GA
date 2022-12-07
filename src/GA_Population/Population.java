@@ -16,7 +16,8 @@ public class Population {
     public ArrayList<Individual<Integer>> individuals = new ArrayList<Individual<Integer>>();
     public int fittest = 0;
 
-// Initialize population
+// This function is used to add the individuals into a population.
+
 /**
  * This is the method intializePopulation() which is used to add the individuals into the population.
  * 
@@ -30,6 +31,7 @@ public class Population {
     }
 
 // Get the fittest individual
+
 /**
  * This is the method getFittest() which is used to get the fittest of the population.
  * 
@@ -52,6 +54,7 @@ public class Population {
     }
 
 // Get the second most fittest individual
+
 /**
  * This is the method getSecondFittest() which is used to get the second fittest of the population.
  * 
@@ -75,6 +78,7 @@ public class Population {
     }
 
 // Get index of least fittest individual
+
 /**
  * This is the method getLeastFittestIndex() which is used to get the least fittest index of the population.
  * 
@@ -94,6 +98,7 @@ public class Population {
     }
 
 // Calculate fitness of each individual
+
 /**
  * This is the method calculateFitness() which is used to calculate the fitness of the individuals.
  * 

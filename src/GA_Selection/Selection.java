@@ -2,8 +2,7 @@ package GA_Selection;
 
 import GA_Runner.GeneticAlgorithm;
 
-//Selection interface with GeneticAlgorithm instance to allow concrete 
-//classes to access GeneticAlgorithm object
+// Selection interface with GeneticAlgorithm instance to allow concrete classes to access GeneticAlgorithm object
 
 /**
  * This is the interface for Selection. It has two subclasses EliteSelection and TwoFittest.

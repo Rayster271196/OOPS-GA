@@ -71,3 +71,8 @@ Open-Close principle is ensurd in the program where the configuration of the GA 
 the process such as Selection, Crossover, Mutation work on the population. this enables the user to change the logic of the program by altering the method used and work on population. 
 The code is properly packaged as per the methods, the gentic algorithm and the runner. Import statments will be use when neccessary to use the revlevant packages.
 Error handling is also done to ensure that the wrong paramenters will not be passed. 
+
+*****************************************************************************************************
+At the last step, we also have done enough times tests to this program, as software testing identifies bugs and issues in the development process 
+so they're fixed prior to product launch. Also this approach ensures that quality program is delivered, which in turn meets project requirements  
+and specification.

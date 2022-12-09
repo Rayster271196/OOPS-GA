@@ -1,7 +1,7 @@
 # OOPS-GA
 This is the group project submitted by: 
-1. 22251833 Rayster
-2. 22251836 Savio
+1. 22251833 Rayster Fernandes 
+2. 22251836 Savio Fernandes
 3. 21250188 Soorya
 4. 21250758 Qing
 

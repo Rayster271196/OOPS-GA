@@ -1,6 +1,7 @@
 package GA_Mutation;
 
 // Context class for Mutation interface and its implementation classes. Hold Mutation object's lifetime and manage it
+// MutationContext class is the class where the context of the Mutation is tracked.
 
 public class MutationContext {
 // Context variable

@@ -3,7 +3,7 @@ package GA_Population;
 import java.util.ArrayList;
 
 /**
- * This is the Population class. This class is solely responsible for maintaing the individuals into ne group. 
+ * This is the Population class. This class is solely responsible for maintaing the individuals into one group. 
  * this class contains the following methods:
  * intializePopulation(): used to add the individuals into a population.
  * getFittest(): used to get the fittest of the population.
@@ -12,14 +12,14 @@ import java.util.ArrayList;
  * calculateFitness(): used to calculate the fitness of the individual.
  */
 public class Population {
-// ArrayList to store Individual objects
+    // ArrayList to store Individual objects
     public ArrayList<Individual<Integer>> individuals = new ArrayList<Individual<Integer>>();
     public int fittest = 0;
 
 // This function is used to add the individuals into a population.
 
 /**
- * This is the method intializePopulation() which is used to add the individuals into the population.
+ * This is the method intializePopulation() which is used to initialize the individuals into the population in the ArrayList Individuals.
  * 
  * @param size
  */
@@ -33,9 +33,9 @@ public class Population {
 // Get the fittest individual
 
 /**
- * This is the method getFittest() which is used to get the fittest of the population.
+ * Method getFittest() :  to get the fittest individual of the population.
  * 
- * @return Individual
+ * @return Individual<Integer>
  */
     public Individual<Integer> getFittest() {
         int maxFit = Integer.MIN_VALUE;
@@ -56,9 +56,9 @@ public class Population {
 // Get the second most fittest individual
 
 /**
- * This is the method getSecondFittest() which is used to get the second fittest of the population.
+ * Method getSecondFittest() :  to get the second fittest of the population.
  * 
- * @return Individual
+ * @return Individual<Integer>
  */
     public Individual<Integer> getSecondFittest() {
         int maxFit1 = 0;
@@ -80,7 +80,7 @@ public class Population {
 // Get index of least fittest individual
 
 /**
- * This is the method getLeastFittestIndex() which is used to get the least fittest index of the population.
+ * Method getLeastFittestIndex() : to get the least fittest index of the population.
  * 
  * @return int
  */
@@ -100,8 +100,8 @@ public class Population {
 // Calculate fitness of each individual
 
 /**
- * This is the method calculateFitness() which is used to calculate the fitness of the individuals.
- * 
+ * Method calculateFitness() : to calculate the fitness of the individuals.
+ * The method invokes class calcFitness from class individual to implement DRY.
  */
     public void calculateFitness() {
         

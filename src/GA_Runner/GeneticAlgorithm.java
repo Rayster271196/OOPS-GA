@@ -14,14 +14,13 @@ import GA_Population.*;
 /**
  * This is the GeneticAlgorithm class which is responsible for creating the instance.
  * This is where the Singleton Pattern is implemented. There is only a need of one instance where that instance parameters should be modifed to get the result.
- * This allows better consisitency and makes sure all the function are working on the same data.
+ * This allows better consistency and makes sure all the function are working on the same data.
  * It is responsible for creating the context of each of the methods. 
  * It also holds the run() function which is where the user interacts and can change the choice in the class for the methods and enters the input for the gene-length and population
- * You can also change the type of methods use by using the appropriate enumerations
- * The fittest and second fittest which are used by the process can be accessed the setters and getters 
+ * You can alter the selection, crossover and mutation types by using the appropriate enumerations here
+ * Getting and Setting the fittest and secondFittest which are used to evaluate Individuals for our calculation can be accessed the setters and getters 
  */
 
-// Logical codes where GeneticAlgorithm really works
 public class GeneticAlgorithm {
 
     public Population population = new Population();
@@ -62,11 +61,10 @@ public class GeneticAlgorithm {
     }
 
 /**
- * getFittestOffspring() finds the fittest offspring in the population
+ * getFittestOffspring() : finds the fittest offspring in the population
  *
  * @return the fittest offspring in the population
  */
-    //Get fittest offspring
     Individual<Integer> getFittestOffspring() {
         if (fittest.fitness > secondFittest.fitness) {
             return fittest;
@@ -75,11 +73,10 @@ public class GeneticAlgorithm {
     }
 
 /**
- * method addFittestOffspring(): Replaces the least-fit member with the most fittest membr in the population
+ * method addFittestOffspring(): Replaces the least-fit member with the most fittest member in the population.
  *
  * @return void
  */
-// Replace least fittest individual from most fittest offspring
     void addFittestOffspring() {
 
         //Update fitness values of offspring
@@ -101,6 +98,9 @@ public class GeneticAlgorithm {
     static void run(GeneticAlgorithm geneticAlgorithm){
         Scanner scan = new Scanner(System.in);
         Random rn = new Random();
+        /*
+         * Using a try catch block to handle Exceptions 
+         */
         try{
             System.out.println("Default parameters:");
             System.out.println(geneticAlgorithm.selectionContext);
@@ -111,7 +111,7 @@ public class GeneticAlgorithm {
             System.out.println("*".repeat(100));
             System.out.println("Starting Genetic Algorithm.....\n");
 
-            //Initialize population
+            //Initializing the population
             System.out.println("Enter gene length: ");
             Individual.geneLength = scan.nextInt();
             if(Individual.geneLength <= 1){
@@ -124,13 +124,14 @@ public class GeneticAlgorithm {
             }
             geneticAlgorithm.population.initializePopulation(populationSize);
 
-            //Calculate fitness of each individual
+            //Calculating the fitness of each individual
             geneticAlgorithm.population.calculateFitness();
             System.out.println();
             
 
             GAFactory factoryConfig = new GAConfig();
-            // Create factory object to create selection, crossover and mutation objects,
+            // Creating factory objects to create selection, crossover and mutation objects,
+            // Editing the Enums here can tailor the options of selection, crossover and mutation
             // and send these returned objects in the respective context classes.
             geneticAlgorithm.selectionContext.setSelection(factoryConfig.selectionChoice(GAFactory.SELECTION.TWOFITTEST));
             geneticAlgorithm.crossoverContext.setcrossover(factoryConfig.crossoverChoice(GAFactory.CROSSOVER.TWOPOINT));
@@ -150,16 +151,16 @@ public class GeneticAlgorithm {
                 geneticAlgorithm.selectionContext.executeStrategy();
                 geneticAlgorithm.crossoverContext.executeStrategy();
 
-                //Do mutation under a random probability
+                //Performing mutation under a random probability
                 if (rn.nextInt()%10 > 3){
                     System.out.println("Mutating.....");
                     geneticAlgorithm.mutationContext.executeStrategy();
                 }
 
-                // Add fittest offspring to population
+                // Adding fittest offspring to population
                 geneticAlgorithm.addFittestOffspring();
 
-                // Calculate new fitness value
+                // Calculating new fitness value
                 geneticAlgorithm.population.calculateFitness();
 
                 System.out.println("Generation: " + geneticAlgorithm.generationCount + " Fittest: " + geneticAlgorithm.population.fittest);
@@ -185,7 +186,7 @@ public class GeneticAlgorithm {
 
 
 /** 
- * method appendtoFile(): This function catches if there is any error in the output display page and it stores it in a Error-log.txt,
+ * method appendtoFile(): This method catches if there is any error in the output display page and it stores it in a Error-log.txt,
  * in case any errors is detected.
  * @param e
  */

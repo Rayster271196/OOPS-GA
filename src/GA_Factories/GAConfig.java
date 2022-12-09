@@ -7,6 +7,7 @@ import GA_Selection.*;
 public class GAConfig implements GAFactory {
 
   /**
+   * Implementation of the abstract method from GAFactory,
    * selectionChoice() will create a new class as per the mentioned type if
    * nothing is mentioned it takes the default choice that was given.
    *
@@ -25,7 +26,7 @@ public class GAConfig implements GAFactory {
   }
 
   /**
-   * 
+   * Implementation of the abstract method from GAFactory,
    * crossoverChoice() will create a new class as per the mentioned type if
    * nothing is mentioned it takes the default choice that was given.
    *
@@ -44,6 +45,7 @@ public class GAConfig implements GAFactory {
   }
 
   /**
+   * Implementation of the abstract method from GAFactory,
    * mutationChoice() will create a new class as per the requested mutation type,
    * if incorrect mutation is passed IllegalArgumentException will be thrown.
    * 

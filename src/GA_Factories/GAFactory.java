@@ -5,13 +5,17 @@ import GA_Mutation.Mutation;
 import GA_Selection.Selection;
 
 /**
+ * * This is the interface for Factory. It is implemented by GAConfig class.
  * GAFactory is responsible for creation of Selection, Crossover, Mutation objects.
+ * Here Abstract Factory Pattern is implementeted with this being the Factory interface and GAConfig being the concrete class
  */
 
 public interface GAFactory {
 
   /*
-   * Types of selections supported
+   * This is an ENUM for the types of selections supported
+   * Here we demonstrate the use of enums to achieve type safety
+   * In our case we implement Elite Selection and TwoFittest Selection
    */
   enum SELECTION {
     ELITE,
@@ -19,7 +23,8 @@ public interface GAFactory {
   }
 
   /*
-   * Types of crossovers supported
+   * This is an ENUM for the types of crossovers supported
+   * In our case we implement OnePoint crossover and TwoPoint crossover
    */
   enum CROSSOVER {
     ONEPOINT,
@@ -27,7 +32,8 @@ public interface GAFactory {
   }
 
   /*
-   * Types of mutations supported
+   * This is an ENUM for the types of Mutations supported
+   * In our case we implement Inversion mutation and Swap mutation
    */
   enum MUTATION {
     INVERSION,
@@ -35,7 +41,8 @@ public interface GAFactory {
   }
 
   /**
-   * Decides the type of selection to be used.
+   * selectionChoice() : abstract method to set the Selection type 
+   * during Runtime
    *
    * @param selection
    * @return Selection object
@@ -43,7 +50,8 @@ public interface GAFactory {
   abstract Selection selectionChoice(SELECTION selection);
 
   /**
-   * Decides the type of crossover to be used
+   * crossoverChoice() : abstract method to set the Crossover type 
+   * During Runtime
    *
    * @param crossover
    * @return Crossover object
@@ -51,7 +59,8 @@ public interface GAFactory {
   abstract Crossover crossoverChoice(CROSSOVER crossover);
 
   /**
-   * Decides the type of Mutation to be used
+   * mutationChoice() : abstract method to set the Mutation type 
+   * During Runtime
    * @param mutation
    * @return Mutation object
    */

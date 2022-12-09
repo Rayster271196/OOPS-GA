@@ -4,8 +4,7 @@ import java.util.*;
 
 /**
  * This is a concrete class EliteSelection which implements the interface Selection.
- * It does the selection as per the logic of EliteSelection which takes randomly any two individual from the 
- * top 10 most fittest individuals.
+ * It selects as per the logic of Elite Selection which randomly takes any two individual from the 10 fittest individuals.
  * 
  */
 public class EliteSelection implements Selection {

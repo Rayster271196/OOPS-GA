@@ -1,6 +1,10 @@
 package GA_Selection;
 
-// Context class for Selection interface and its implementation classes, hold Selection object's lifetime and manage it
+/* 
+ * Context class for Selection interface and its implementation classes, hold Selection object's lifetime and manage it
+ * SelectionContext class is the class where the context of the Selection is tracked.
+*/ 
+
 
 public class SelectionContext {
   // Context variable
@@ -34,7 +38,8 @@ public class SelectionContext {
   }
 
   /*
-   * toString method for SelectionContext class
+   * Overriding toString method for SelectionContext class
+   * Prints out the class chosen for selection
    */
   @Override
   public String toString() {

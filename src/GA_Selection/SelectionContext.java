@@ -7,7 +7,6 @@ package GA_Selection;
 
 
 public class SelectionContext {
-  // Context variable
   private Selection selection;
   
   /**

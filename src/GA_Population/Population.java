@@ -12,11 +12,10 @@ import java.util.ArrayList;
  * calculateFitness(): used to calculate the fitness of the individual.
  */
 public class Population {
-    // ArrayList to store Individual objects
+    // ArrayList to store list of Individuals
     public ArrayList<Individual<Integer>> individuals = new ArrayList<Individual<Integer>>();
     public int fittest = 0;
 
-// This function is used to add the individuals into a population.
 
 /**
  * This is the method intializePopulation() which is used to initialize the individuals into the population in the ArrayList Individuals.
@@ -29,8 +28,6 @@ public class Population {
             individuals.add(new Individual<Integer>());
         }
     }
-
-// Get the fittest individual
 
 /**
  * Method getFittest() :  to get the fittest individual of the population.
@@ -49,11 +46,11 @@ public class Population {
         }
 		//Assign the max fitness value
         fittest = individuals.get(maxFitIndex).fitness;
+
 		//return the fittest individual
         return individuals.get(maxFitIndex);
     }
 
-// Get the second most fittest individual
 
 /**
  * Method getSecondFittest() :  to get the second fittest of the population.
@@ -76,8 +73,6 @@ public class Population {
 		
         return individuals.get(maxFit2);
     }
-
-// Get index of least fittest individual
 
 /**
  * Method getLeastFittestIndex() : to get the least fittest index of the population.

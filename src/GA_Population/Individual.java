@@ -27,8 +27,6 @@ public class Individual<T extends Integer> {
         fitness = 0;
     }
 
-// Calculate fitness
-
 /**
  * This is the method that is used to calculate the fitness of the given individual.
  */

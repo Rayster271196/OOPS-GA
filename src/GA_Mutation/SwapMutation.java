@@ -3,11 +3,11 @@ package GA_Mutation;
 import java.util.Random;
 import GA_Population.Individual;
 
-// The subbclass SwapMutation of Mutation interface, it swap genes based on the algorithm by randonmly considering two points as per the gene length.
+
 
 /**
- * This is the subclass SwapMutation of Mutation interface. It modifies the method mutation() as per the logic of the mutation method 
- * that is used.
+ * The subclass SwapMutation of Mutation interface,
+ * it swap genes based on the algorithm by randonmly considering two points as per the gene length.
  */
 public class SwapMutation implements Mutation
 {
@@ -31,7 +31,6 @@ public class SwapMutation implements Mutation
             mutationPointone++;
             mutationPointone = mutationPointone % 10;
         }
-        // System.out.println(mutationPointone+" "+mutationPointone);
 
         if ((fittest.genes.get(mutationPointone)==fittest.genes.get(mutationPointtwo))
                 && (fittest.genes.get(mutationPointone)==0 ))

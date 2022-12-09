@@ -3,13 +3,9 @@ package GA_Mutation;
 import java.util.Random;
 import GA_Population.Individual;
 
-// The subclass inversion of the interface Mutation, this implements the Inversion algorithm by inverting the genes of an individual
-// by flipping at randomn points as per the gene length. 
-
 /**
- * This is the subclass Inversion of Mutation interface. It modifies the method
- * mutation() as per the logic of the mutation method
- * that is used.
+ * The subclass inversion of the interface Mutation, this implements the Inversion algorithm by inverting the genes of an individual
+ * by flipping at randomn points as per the gene length. 
  */
 public class Inversion implements Mutation {
 

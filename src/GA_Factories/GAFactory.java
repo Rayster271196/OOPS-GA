@@ -5,30 +5,30 @@ import GA_Mutation.Mutation;
 import GA_Selection.Selection;
 
 /**
- * This is the Genetic Algorithm factory which is responsible for what method to
- * be used for Selection, Crossover, Mutation.
- * This includes three methods where the type of process can be changed.
- * enumeration is done for the available choices.
- * 
- * @return sum of two operands
+ * GAFactory is responsible for creation of Selection, Crossover, Mutation objects.
  */
 
-// Interface for Abstractory Factory Pattern
 public interface GAFactory {
 
-  // Available choices for selection
+  /*
+   * Types of selections supported
+   */
   enum SELECTION {
     ELITE,
     TWOFITTEST
   }
 
-  // Available choices for crossover
+  /*
+   * Types of crossovers supported
+   */
   enum CROSSOVER {
     ONEPOINT,
     TWOPOINT
   }
 
-  // Available choices for mutation
+  /*
+   * Types of mutations supported
+   */
   enum MUTATION {
     INVERSION,
     SWAP
@@ -38,7 +38,7 @@ public interface GAFactory {
    * Decides the type of selection to be used.
    *
    * @param selection
-   * @return Selection
+   * @return Selection object
    */
   abstract Selection selectionChoice(SELECTION selection);
 
@@ -46,14 +46,14 @@ public interface GAFactory {
    * Decides the type of crossover to be used
    *
    * @param crossover
-   * @return Crossover
+   * @return Crossover object
    */
   abstract Crossover crossoverChoice(CROSSOVER crossover);
 
   /**
    * Decides the type of Mutation to be used
    * @param mutation
-   * @return Mutation
+   * @return Mutation object
    */
   abstract Mutation mutationChoice(MUTATION mutation);
 }

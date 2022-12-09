@@ -3,7 +3,7 @@ This is the group project submitted by:
 1. 22251833 Rayster Fernandes 
 2. 22251836 Savio Fernandes
 3. 21250188 Soorya
-4. 21250758 Qing
+4. 21250758 Qing Liu
 
 This program exctues the basic working of a Genetic Algorithm.
 The idea of a GA is:

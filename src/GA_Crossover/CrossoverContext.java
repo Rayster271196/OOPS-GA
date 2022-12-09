@@ -1,9 +1,9 @@
 package GA_Crossover;
 
-//Context class for Crossover interface and its implementation classes. Hold crossover object's lifetime and manage it
-
+/*
+ * Context class for Crossover interface and its implementation classes. Hold crossover object's lifetime and manage it 
+ */
 public class CrossoverContext {
-  // Context variable
   private Crossover crossover;
 
   /**

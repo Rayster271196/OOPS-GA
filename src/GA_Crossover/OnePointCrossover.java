@@ -4,19 +4,16 @@ import java.util.Random;
 
 import GA_Population.Individual;
 
-// One concrete class that implements Crossover interface, crossovers one point at a time
-
 /**
- * This is the subclass OnePointCrossover of Crossover interface. It modifies the method crossover() as per the logic of the crossover method 
- * that is used.
+ * This is the concrete class OnePointCrossover which implements Crossover interface.
  */
 public class OnePointCrossover implements Crossover {
 
 /**
- * This is the crossover() method of OnePointCrossover.
- * This is the crossover method where we use one crossover point in the gene of the individual by determining a randomn point in the gene length.
- * We swap the gene of the second fittest to the fittst inn the population.
+ * In this type of crossover we use a random crossover point in the gene of the individual by determining a random point in the gene length.
+ * We swap the gene at the crossover point of the second fittest individual with the fittest individual in the population.
  */
+    @Override
     public void crossover() {
         Random rn = new Random();
 

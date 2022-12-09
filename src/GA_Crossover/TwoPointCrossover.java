@@ -3,20 +3,14 @@ package GA_Crossover;
 import java.util.Random;
 import GA_Population.Individual;
 
-// One concrete class that implements Crossover interface, crossovers two points at a time
-
 /**
- * This is the subclass TwoPointCrossover of Crossover interface. It modifies the method crossover() as per the logic of the crossover method 
- * that is used.
+ * This is the concrete class TwoPointCrossover which implements Crossover interface.
  */
 public class TwoPointCrossover implements Crossover {
 
 /**
- * This is the crossover() method of TwoPointCrossover.
- * This is the crossover method where we use two crossover point in the gene of the individual by determining two randomn points in the gene length.
- * We also check to make sure the points are different, and also that point one is lower than point 2.
- * If the gene length is greater than point one and lower than point two then we swap
- * We swap the genes of the second fittest to the fittst inn the population.
+ * In this type of crossover, we take any two random crossover point in the gene of the fittest and second fittest individual
+ * We swap the genes between crossoverpoint1 and crossoverpoint2 with the second fittest and the fittest in the population.
  */
     public void crossover() {
         Random rn = new Random();
@@ -24,7 +18,7 @@ public class TwoPointCrossover implements Crossover {
         Individual<Integer> fittest = demo.getFittest();
         Individual<Integer> secondFittest = demo.getSecondFittest();
 
-        // Select a random crossover point
+        // Select two random crossover points
         int crossOverPoint1 = rn.nextInt(Individual.geneLength);
         int crossOverPoint2 = rn.nextInt(Individual.geneLength);
 
@@ -44,7 +38,7 @@ public class TwoPointCrossover implements Crossover {
             crossOverPoint2 = temp;
         }
 
-        // Swap values among the individuals
+        // Swap values among fittest and second fittest individuals
         for (int i = 0; i < Individual.geneLength; i++) {
             if ((i >= crossOverPoint1) || (i <= crossOverPoint2)) {
                 int temp = fittest.genes.get(i);
